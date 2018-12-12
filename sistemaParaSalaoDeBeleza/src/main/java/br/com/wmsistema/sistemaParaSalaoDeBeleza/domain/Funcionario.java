@@ -3,10 +3,13 @@ package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "FUNCIONARIO")
-public class Funcionario {
+public class Funcionario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,9 +32,26 @@ public class Funcionario {
     @Column(name = "CARGO")
     private String cargo;
 
+    @Column(name = "DATA_ENTRADA")
+    @Temporal(TemporalType.DATE)
+    private Date dataEntrada;
+
+    @Column(name = "DATA_SAIDA")
+    @Temporal(TemporalType.DATE)
+    private Date dataSaida;
+
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
+
+    @ManyToMany
+    @JoinTable(name="FUNCIONARIO_SERVICO",
+            joinColumns=
+            @JoinColumn(name="funcServicoId", referencedColumnName="funcionario_id"),
+            inverseJoinColumns=
+            @JoinColumn(name="ServFuncionarioId", referencedColumnName="servico_id")
+    )
+    private List<Servico> servicos;
 
     public String getNome() {
         return nome;
@@ -79,5 +99,29 @@ public class Funcionario {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public Date getDataEntrada() {
+        return dataEntrada;
+    }
+
+    public void setDataEntrada(Date dataEntrada) {
+        this.dataEntrada = dataEntrada;
+    }
+
+    public Date getDataSaida() {
+        return dataSaida;
+    }
+
+    public void setDataSaida(Date dataSaida) {
+        this.dataSaida = dataSaida;
+    }
+
+    public List<Servico> getServicos() {
+        return servicos;
+    }
+
+    public void setServicos(List<Servico> servicos) {
+        this.servicos = servicos;
     }
 }
