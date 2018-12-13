@@ -5,7 +5,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table( name = "USUARIO" )
@@ -13,7 +12,7 @@ public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long usuario_Id;
 
     @Column(name = "EMAIL")
     @NotNull(message = "Codigo é obrigatório")
@@ -25,12 +24,9 @@ public class Usuario implements Serializable {
     @Min(value = 4, message = "Senha deve ter no mínimo 4 digitos")
     private String senha;
 
-    @Column(name = "NOME_SALAO")
+    @Column(name = "NOME_USUARIO")
     @NotNull(message = "Codigo é obrigatório")
-    private String nomeSalao;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "usuario")
-    private List<Funcionario> funcionarios;
+    private String nomeUsuario;
 
     public String getEmail() {
         return email;
@@ -48,11 +44,11 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public String getNomeSalao() {
-        return nomeSalao;
+    public String getNomeUsuario() {
+        return nomeUsuario;
     }
 
-    public void setNomeSalao(String nomeSalao) {
-        this.nomeSalao = nomeSalao;
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
     }
 }

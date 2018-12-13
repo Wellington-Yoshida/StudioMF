@@ -1,33 +1,15 @@
 package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
 
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.enums.TipoProfissional;
+
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "FUNCIONARIO")
-public class Funcionario implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "NOME")
-    @NotNull(message = "Codigo é obrigatório")
-    private String nome;
-
-    @Column(name = "EMAIL")
-    @Email(message = "Email deve ser válido")
-    private String email;
-
-    @Column(name = "TELEFONE")
-    private String telefone;
-
-    @Column(name = "CELULAR")
-    private String celular;
+@DiscriminatorValue(value = "FUN")
+public class Funcionario extends Pessoa implements Serializable {
 
     @Column(name = "CARGO")
     private String cargo;
@@ -40,50 +22,17 @@ public class Funcionario implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dataSaida;
 
-    @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
-
     @ManyToMany
     @JoinTable(name="FUNCIONARIO_SERVICO",
             joinColumns=
-            @JoinColumn(name="funcServicoId", referencedColumnName="funcionario_id"),
+            @JoinColumn(name="funcServicoId", referencedColumnName="pessoa_Id"),
             inverseJoinColumns=
-            @JoinColumn(name="ServFuncionarioId", referencedColumnName="servico_id")
+            @JoinColumn(name="ServFuncionarioId", referencedColumnName="servico_Id")
     )
     private List<Servico> servicos;
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
+    @Enumerated(EnumType.STRING)
+    private TipoProfissional tipoProfissional;
 
     public String getCargo() {
         return cargo;
@@ -91,14 +40,6 @@ public class Funcionario implements Serializable {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
     public Date getDataEntrada() {
@@ -123,5 +64,13 @@ public class Funcionario implements Serializable {
 
     public void setServicos(List<Servico> servicos) {
         this.servicos = servicos;
+    }
+
+    public TipoProfissional getTipoProfissional() {
+        return tipoProfissional;
+    }
+
+    public void setTipoProfissional(TipoProfissional tipoProfissional) {
+        this.tipoProfissional = tipoProfissional;
     }
 }

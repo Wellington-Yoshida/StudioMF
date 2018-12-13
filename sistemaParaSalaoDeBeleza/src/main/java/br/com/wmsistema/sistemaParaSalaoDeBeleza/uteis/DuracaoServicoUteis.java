@@ -1,6 +1,6 @@
-package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
+package br.com.wmsistema.sistemaParaSalaoDeBeleza.uteis;
 
-public final class DuracaoServico {
+public final class DuracaoServicoUteis {
 
     public static final String _15_MINUTOS          = "00:15";
     public static final String _30_MINUTOS          = "00:30";
@@ -21,4 +21,5 @@ public final class DuracaoServico {
     public static final String _4_HORA_30_MINITOS   = "04:30";
     public static final String _4_HORA_45_MINITOS   = "04:45";
     public static final String _5_HORA              = "05:00";
+
 }

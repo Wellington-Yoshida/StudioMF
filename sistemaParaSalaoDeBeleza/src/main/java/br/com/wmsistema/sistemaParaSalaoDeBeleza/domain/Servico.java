@@ -11,16 +11,24 @@ public class Servico implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long servico_Id;
 
     @Column(name = "NOME")
     @NotNull(message = "Codigo é obrigatório")
     private String nome;
 
-   //Construir um ENUM para duracao do serviço
+    @Column(name = "TEMPO_DURACAO_SERVICO")
+    private String tempoDuracaoServico;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "servico")
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "servicos")
+    private List<Cliente> clientes;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "servicos")
     private List<Funcionario> funcionarios;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
     public String getNome() {
         return nome;
@@ -36,5 +44,29 @@ public class Servico implements Serializable {
 
     public void setFuncionarios(List<Funcionario> funcionarios) {
         this.funcionarios = funcionarios;
+    }
+
+    public String getTempoDuracaoServico() {
+        return tempoDuracaoServico;
+    }
+
+    public void setTempoDuracaoServico(String tempoDuracaoServico) {
+        this.tempoDuracaoServico = tempoDuracaoServico;
+    }
+
+    public List<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
