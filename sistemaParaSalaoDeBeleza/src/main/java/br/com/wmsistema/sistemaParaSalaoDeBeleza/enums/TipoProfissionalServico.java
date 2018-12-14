@@ -1,13 +1,13 @@
 package br.com.wmsistema.sistemaParaSalaoDeBeleza.enums;
 
-public enum TipoProfissional {
+public enum TipoProfissionalServico {
 
     CABELEREIRA("cabelereira(o)"),
     MANICURI("manicuri"),
     MAQUIADORA("maquiadora"),
     AUXILIAR("auxiliar");
 
-    TipoProfissional(String s) {
+    TipoProfissionalServico(String s) {
     }
 
 }

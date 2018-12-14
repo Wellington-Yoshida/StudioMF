@@ -11,6 +11,9 @@ public class Cliente extends Pessoa implements Serializable {
     @Column(name = "OBSERVACAO")
     private String observacao;
 
+    @Column(name = "CPF")
+    private String cpf;
+
     @ManyToMany
     @JoinTable(name="CLIENTE_SERVICO",
             joinColumns=

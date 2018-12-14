@@ -1,5 +1,7 @@
 package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
 
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.enums.TipoProfissionalServico;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -20,15 +22,18 @@ public class Servico implements Serializable {
     @Column(name = "TEMPO_DURACAO_SERVICO")
     private String tempoDuracaoServico;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "servicos")
-    private List<Cliente> clientes;
-
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "servicos")
-    private List<Funcionario> funcionarios;
+//    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "servicos")
+//    private List<Cliente> clientes;
+//
+//    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "servicos")
+//    private List<Funcionario> funcionarios;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
+
+    @Enumerated(EnumType.STRING)
+    private List<TipoProfissionalServico> tipoProfissionalServicos;
 
     public String getNome() {
         return nome;
@@ -36,14 +41,6 @@ public class Servico implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public List<Funcionario> getFuncionarios() {
-        return funcionarios;
-    }
-
-    public void setFuncionarios(List<Funcionario> funcionarios) {
-        this.funcionarios = funcionarios;
     }
 
     public String getTempoDuracaoServico() {
@@ -54,19 +51,19 @@ public class Servico implements Serializable {
         this.tempoDuracaoServico = tempoDuracaoServico;
     }
 
-    public List<Cliente> getClientes() {
-        return clientes;
-    }
-
-    public void setClientes(List<Cliente> clientes) {
-        this.clientes = clientes;
-    }
-
     public Usuario getUsuario() {
         return usuario;
     }
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public List<TipoProfissionalServico> getTipoProfissionalServicos() {
+        return tipoProfissionalServicos;
+    }
+
+    public void setTipoProfissionalServicos(List<TipoProfissionalServico> tipoProfissionalServicos) {
+        this.tipoProfissionalServicos = tipoProfissionalServicos;
     }
 }

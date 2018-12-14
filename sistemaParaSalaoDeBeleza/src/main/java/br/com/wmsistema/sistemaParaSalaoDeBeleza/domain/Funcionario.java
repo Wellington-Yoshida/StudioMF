@@ -1,6 +1,6 @@
 package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
 
-import br.com.wmsistema.sistemaParaSalaoDeBeleza.enums.TipoProfissional;
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.enums.TipoProfissionalServico;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -32,7 +32,7 @@ public class Funcionario extends Pessoa implements Serializable {
     private List<Servico> servicos;
 
     @Enumerated(EnumType.STRING)
-    private TipoProfissional tipoProfissional;
+    private TipoProfissionalServico tipoProfissionalServico;
 
     public String getCargo() {
         return cargo;
@@ -66,11 +66,11 @@ public class Funcionario extends Pessoa implements Serializable {
         this.servicos = servicos;
     }
 
-    public TipoProfissional getTipoProfissional() {
-        return tipoProfissional;
+    public TipoProfissionalServico getTipoProfissionalServico() {
+        return tipoProfissionalServico;
     }
 
-    public void setTipoProfissional(TipoProfissional tipoProfissional) {
-        this.tipoProfissional = tipoProfissional;
+    public void setTipoProfissionalServico(TipoProfissionalServico tipoProfissionalServico) {
+        this.tipoProfissionalServico = tipoProfissionalServico;
     }
 }
