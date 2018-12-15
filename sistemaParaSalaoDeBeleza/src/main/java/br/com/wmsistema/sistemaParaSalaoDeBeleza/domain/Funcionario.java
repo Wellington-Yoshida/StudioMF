@@ -1,8 +1,11 @@
 package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
 
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.enums.TipoAutorizacao;
 import br.com.wmsistema.sistemaParaSalaoDeBeleza.enums.TipoProfissionalServico;
+import sun.security.util.Password;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -13,6 +16,9 @@ public class Funcionario extends Pessoa implements Serializable {
 
     @Column(name = "CARGO")
     private String cargo;
+
+    @Column(name = "SENHA")
+    private Password senha;
 
     @Column(name = "DATA_ENTRADA")
     @Temporal(TemporalType.DATE)
@@ -33,6 +39,9 @@ public class Funcionario extends Pessoa implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private TipoProfissionalServico tipoProfissionalServico;
+
+    @Enumerated(EnumType.STRING)
+    private TipoAutorizacao tipoAutorizacao;
 
     public String getCargo() {
         return cargo;
@@ -72,5 +81,21 @@ public class Funcionario extends Pessoa implements Serializable {
 
     public void setTipoProfissionalServico(TipoProfissionalServico tipoProfissionalServico) {
         this.tipoProfissionalServico = tipoProfissionalServico;
+    }
+
+    public Password getSenha() {
+        return senha;
+    }
+
+    public void setSenha(Password senha) {
+        this.senha = senha;
+    }
+
+    public TipoAutorizacao getTipoAutorizacao() {
+        return tipoAutorizacao;
+    }
+
+    public void setTipoAutorizacao(TipoAutorizacao tipoAutorizacao) {
+        this.tipoAutorizacao = tipoAutorizacao;
     }
 }

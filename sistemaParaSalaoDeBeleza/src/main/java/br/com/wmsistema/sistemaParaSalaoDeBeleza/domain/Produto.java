@@ -27,6 +27,13 @@ public class Produto implements Serializable {
     @JoinColumn(name = "fornecedor_id")
     private Fornecedor fornecedor;
 
+    @Column(name = "VALOR_PRODUTO", precision = 18, scale = 2)
+    private Double valorProduto;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
     public String getNomeProduto() {
         return nomeProduto;
     }
@@ -65,5 +72,21 @@ public class Produto implements Serializable {
 
     public void setFornecedor(Fornecedor fornecedor) {
         this.fornecedor = fornecedor;
+    }
+
+    public Double getValorProduto() {
+        return valorProduto;
+    }
+
+    public void setValorProduto(Double valorProduto) {
+        this.valorProduto = valorProduto;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

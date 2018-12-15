@@ -35,6 +35,9 @@ public class Servico implements Serializable {
     @Enumerated(EnumType.STRING)
     private List<TipoProfissionalServico> tipoProfissionalServicos;
 
+    @Column(name = "VALOR_SERVICO", precision = 18, scale = 2)
+    private Double valorServico;
+
     public String getNome() {
         return nome;
     }
@@ -65,5 +68,13 @@ public class Servico implements Serializable {
 
     public void setTipoProfissionalServicos(List<TipoProfissionalServico> tipoProfissionalServicos) {
         this.tipoProfissionalServicos = tipoProfissionalServicos;
+    }
+
+    public Double getValorServico() {
+        return valorServico;
+    }
+
+    public void setValorServico(Double valorServico) {
+        this.valorServico = valorServico;
     }
 }
