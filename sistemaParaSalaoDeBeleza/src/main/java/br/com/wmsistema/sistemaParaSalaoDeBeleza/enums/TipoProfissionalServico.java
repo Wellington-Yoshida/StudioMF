@@ -7,7 +7,12 @@ public enum TipoProfissionalServico {
     MAQUIADORA("maquiadora"),
     AUXILIAR("auxiliar");
 
+    private String valor;
     TipoProfissionalServico(String s) {
+        this.valor = s;
     }
 
+    public String getValor() {
+        return valor;
+    }
 }

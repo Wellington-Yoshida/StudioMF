@@ -6,7 +6,13 @@ public enum TipoPessoa {
     FORNECEDOR("FOR"),
     FUNCIONARIO("FUN");
 
+    private String valor;
 
     TipoPessoa(String tipo) {
+        this.valor = tipo;
+    }
+
+    public String getValor() {
+        return valor;
     }
 }

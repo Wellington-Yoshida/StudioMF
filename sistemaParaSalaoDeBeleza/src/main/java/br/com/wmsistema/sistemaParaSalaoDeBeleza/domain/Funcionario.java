@@ -43,6 +43,9 @@ public class Funcionario extends Pessoa implements Serializable {
     @Enumerated(EnumType.STRING)
     private TipoAutorizacao tipoAutorizacao;
 
+    @Column(name = "PORCENTAGEM_COMISSAO")
+    private Double porcentagemComissao;
+
     public String getCargo() {
         return cargo;
     }
@@ -97,5 +100,13 @@ public class Funcionario extends Pessoa implements Serializable {
 
     public void setTipoAutorizacao(TipoAutorizacao tipoAutorizacao) {
         this.tipoAutorizacao = tipoAutorizacao;
+    }
+
+    public Double getPorcentagemComissao() {
+        return porcentagemComissao;
+    }
+
+    public void setPorcentagemComissao(Double porcentagemComissao) {
+        this.porcentagemComissao = porcentagemComissao;
     }
 }
