@@ -34,13 +34,12 @@ public abstract class Pessoa implements Serializable {
     @Column(name = "CELULAR_2")
     private String celular2;
 
-    @Enumerated(EnumType.STRING)
     @Column(insertable=false, updatable=false)
-    private TipoPessoa tipo;
+    private String tipo;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    @JoinColumn(name = "usuarioEmpresa_Id")
+    private UsuarioEmpresa usuarioEmpresa;
 
     public String getNome() {
         return nome;
@@ -82,19 +81,19 @@ public abstract class Pessoa implements Serializable {
         this.celular2 = celular2;
     }
 
-    public TipoPessoa getTipo() {
+    public UsuarioEmpresa getUsuarioEmpresa() {
+        return usuarioEmpresa;
+    }
+
+    public void setUsuarioEmpresa(UsuarioEmpresa usuarioEmpresa) {
+        this.usuarioEmpresa = usuarioEmpresa;
+    }
+
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(TipoPessoa tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 }

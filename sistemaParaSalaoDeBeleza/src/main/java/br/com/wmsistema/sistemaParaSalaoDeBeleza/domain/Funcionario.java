@@ -5,7 +5,6 @@ import br.com.wmsistema.sistemaParaSalaoDeBeleza.enums.TipoProfissionalServico;
 import sun.security.util.Password;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -45,6 +44,9 @@ public class Funcionario extends Pessoa implements Serializable {
 
     @Column(name = "PORCENTAGEM_COMISSAO")
     private Double porcentagemComissao;
+
+    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
+    private List<Agenda> agendas;
 
     public String getCargo() {
         return cargo;
@@ -108,5 +110,13 @@ public class Funcionario extends Pessoa implements Serializable {
 
     public void setPorcentagemComissao(Double porcentagemComissao) {
         this.porcentagemComissao = porcentagemComissao;
+    }
+
+    public List<Agenda> getAgendas() {
+        return agendas;
+    }
+
+    public void setAgendas(List<Agenda> agendas) {
+        this.agendas = agendas;
     }
 }

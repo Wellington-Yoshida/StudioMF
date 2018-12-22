@@ -1,16 +1,11 @@
 package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "ESTOQUE_ENTRADA")
-public class EstoqueEntrada implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long estoqueEntrada_id;
+@DiscriminatorValue(value = "ENT")
+public class EstoqueEntrada extends Estoque {
 
     @OneToOne(mappedBy = "estoqueEntrada")
     private Produto produto;
@@ -24,10 +19,6 @@ public class EstoqueEntrada implements Serializable {
 
     @Column(name = "VALOR_PAGO", precision = 18, scale = 2)
     private Double valorPago;
-
-    @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
 
     public Produto getProduto() {
         return produto;
@@ -61,11 +52,4 @@ public class EstoqueEntrada implements Serializable {
         this.valorPago = valorPago;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 }

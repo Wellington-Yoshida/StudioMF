@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "EMPRESA")
-public class Empresa extends Usuario implements Serializable {
+public class Empresa extends UsuarioEmpresa implements Serializable {
 
     @Column(name = "CNPJ")
     private String cnpj;

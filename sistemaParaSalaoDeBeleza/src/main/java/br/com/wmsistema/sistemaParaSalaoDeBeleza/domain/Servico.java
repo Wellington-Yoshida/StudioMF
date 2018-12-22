@@ -29,8 +29,8 @@ public class Servico implements Serializable {
 //    private List<Funcionario> funcionarios;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    @JoinColumn(name = "usuarioEmpresa_Id")
+    private UsuarioEmpresa usuarioEmpresa;
 
     @Enumerated(EnumType.STRING)
     private List<TipoProfissionalServico> tipoProfissionalServicos;
@@ -54,12 +54,12 @@ public class Servico implements Serializable {
         this.tempoDuracaoServico = tempoDuracaoServico;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public UsuarioEmpresa getUsuarioEmpresa() {
+        return usuarioEmpresa;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuarioEmpresa(UsuarioEmpresa usuarioEmpresa) {
+        this.usuarioEmpresa = usuarioEmpresa;
     }
 
     public List<TipoProfissionalServico> getTipoProfissionalServicos() {

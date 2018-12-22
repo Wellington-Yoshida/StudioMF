@@ -3,7 +3,6 @@ package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @DiscriminatorValue(value = "CLI")

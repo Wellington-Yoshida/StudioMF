@@ -8,11 +8,11 @@ import java.io.Serializable;
 
 @Entity
 @Table( name = "USUARIO" )
-public class Usuario implements Serializable {
+public class UsuarioEmpresa implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long usuario_Id;
+    private Long usuarioEmpresa_Id;
 
     @Column(name = "EMAIL")
     @NotNull(message = "Codigo é obrigatório")
