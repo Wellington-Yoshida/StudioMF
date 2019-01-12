@@ -1,5 +1,6 @@
-package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
+package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Servico;
 
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Empresa.UsuarioEmpresa;
 import br.com.wmsistema.sistemaParaSalaoDeBeleza.enums.TipoProfissionalServico;
 
 import javax.persistence.*;
@@ -21,12 +22,6 @@ public class Servico implements Serializable {
 
     @Column(name = "TEMPO_DURACAO_SERVICO")
     private String tempoDuracaoServico;
-
-//    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "servicos")
-//    private List<Cliente> clientes;
-//
-//    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "servicos")
-//    private List<Funcionario> funcionarios;
 
     @ManyToOne
     @JoinColumn(name = "usuarioEmpresa_Id")

@@ -1,13 +1,16 @@
-package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
+package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Estoque;
 
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.AbstractClassUtils;
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Produto.Produto;
 import br.com.wmsistema.sistemaParaSalaoDeBeleza.enums.TipoSaidaProdutoEstoque;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@DiscriminatorValue(value = "SAI")
-public class EstoqueSaida extends Estoque {
+@Table(name = "ESTOQUE_SAIDA")
+public class EstoqueSaida extends AbstractClassUtils implements Serializable {
 
     @OneToOne(mappedBy = "estoqueSaida")
     private Produto produto;

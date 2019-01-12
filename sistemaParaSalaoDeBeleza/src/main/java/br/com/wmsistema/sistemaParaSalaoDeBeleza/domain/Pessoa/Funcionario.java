@@ -1,5 +1,7 @@
-package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
+package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Pessoa;
 
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Agenda.Agenda;
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Servico.Servico;
 import br.com.wmsistema.sistemaParaSalaoDeBeleza.enums.TipoAutorizacao;
 import br.com.wmsistema.sistemaParaSalaoDeBeleza.enums.TipoProfissionalServico;
 import sun.security.util.Password;
@@ -44,9 +46,6 @@ public class Funcionario extends Pessoa implements Serializable {
 
     @Column(name = "PORCENTAGEM_COMISSAO")
     private Double porcentagemComissao;
-
-    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
-    private List<Agenda> agendas;
 
     public String getCargo() {
         return cargo;
@@ -112,11 +111,4 @@ public class Funcionario extends Pessoa implements Serializable {
         this.porcentagemComissao = porcentagemComissao;
     }
 
-    public List<Agenda> getAgendas() {
-        return agendas;
-    }
-
-    public void setAgendas(List<Agenda> agendas) {
-        this.agendas = agendas;
-    }
 }

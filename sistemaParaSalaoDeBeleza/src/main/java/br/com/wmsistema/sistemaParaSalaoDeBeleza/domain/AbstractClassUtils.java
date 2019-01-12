@@ -1,23 +1,25 @@
 package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
 
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Empresa.UsuarioEmpresa;
+
 import javax.persistence.*;
 
 public abstract class AbstractClassUtils {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long agenda_id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "usuarioEmpresa_Id")
     private UsuarioEmpresa usuarioEmpresa;
 
-    public Long getAgenda_id() {
-        return agenda_id;
+    public Long getId() {
+        return id;
     }
 
-    public void setAgenda_id(Long agenda_id) {
-        this.agenda_id = agenda_id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public UsuarioEmpresa getUsuarioEmpresa() {

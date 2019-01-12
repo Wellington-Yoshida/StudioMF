@@ -1,4 +1,4 @@
-package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
+package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Pessoa;
 
 import javax.persistence.*;
 import java.io.Serializable;

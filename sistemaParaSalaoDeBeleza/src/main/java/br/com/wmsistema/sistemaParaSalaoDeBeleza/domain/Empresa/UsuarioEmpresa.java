@@ -1,4 +1,6 @@
-package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
+package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Empresa;
+
+import sun.security.util.Password;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -22,7 +24,7 @@ public class UsuarioEmpresa implements Serializable {
     @Column(name = "SENHA")
     @NotNull(message = "Codigo é obrigatório")
     @Min(value = 4, message = "Senha deve ter no mínimo 4 digitos")
-    private String senha;
+    private Password senha;
 
     @Column(name = "NOME_USUARIO")
     @NotNull(message = "Codigo é obrigatório")
@@ -36,11 +38,11 @@ public class UsuarioEmpresa implements Serializable {
         this.email = email;
     }
 
-    public String getSenha() {
+    public Password getSenha() {
         return senha;
     }
 
-    public void setSenha(String senha) {
+    public void setSenha(Password senha) {
         this.senha = senha;
     }
 

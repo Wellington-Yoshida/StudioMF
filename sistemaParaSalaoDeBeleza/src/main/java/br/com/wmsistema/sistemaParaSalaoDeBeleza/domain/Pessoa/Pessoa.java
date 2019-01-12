@@ -1,6 +1,6 @@
-package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
+package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Pessoa;
 
-import br.com.wmsistema.sistemaParaSalaoDeBeleza.enums.TipoPessoa;
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Empresa.UsuarioEmpresa;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;

@@ -1,5 +1,7 @@
-package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
+package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Agenda;
 
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.AbstractClassUtils;
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Comanda.Comanda;
 import br.com.wmsistema.sistemaParaSalaoDeBeleza.enums.TipoAgendamento;
 
 import javax.persistence.*;

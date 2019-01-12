@@ -1,4 +1,7 @@
-package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
+package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Agenda;
+
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.AbstractClassUtils;
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Pessoa.Funcionario;
 
 import javax.persistence.*;
 import java.io.Serializable;

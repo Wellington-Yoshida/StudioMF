@@ -1,4 +1,8 @@
-package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain;
+package br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Produto;
+
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Empresa.UsuarioEmpresa;
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Estoque.Estoque;
+import br.com.wmsistema.sistemaParaSalaoDeBeleza.domain.Pessoa.Fornecedor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -33,6 +37,10 @@ public class Produto implements Serializable {
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private UsuarioEmpresa usuarioEmpresa;
+
+    @ManyToOne
+    @JoinColumn(name = "estoque_Id")
+    private Estoque estoque;
 
     public String getNomeProduto() {
         return nomeProduto;
@@ -88,5 +96,13 @@ public class Produto implements Serializable {
 
     public void setUsuarioEmpresa(UsuarioEmpresa usuarioEmpresa) {
         this.usuarioEmpresa = usuarioEmpresa;
+    }
+
+    public Estoque getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(Estoque estoque) {
+        this.estoque = estoque;
     }
 }
